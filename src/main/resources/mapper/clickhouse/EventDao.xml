@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ifengkou.db.timeseries.dao.clickhouse.EventDao">
+    <select id="getAll" resultType="cn.ifengkou.db.timeseries.model.TestModel">
+        select * from test_jdbc_example limit 20
+    </select>
+
+    <update id="createTestTable">
+        create table test_jdbc_example(day Date, name String, age UInt8) Engine=Log
+    </update>
+
+    <update id="dropTestTable">
+        drop table if exists test_jdbc_example
+    </update>
+
+    <insert id="insertBatch" parameterType="java.util.List">
+        <selectKey resultType ="java.lang.Integer" keyProperty= "id" order= "AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey >
+        insert into test_jdbc_example
+        (day, name, age)
+        values
+        <foreach collection ="list" item="model" index= "index" separator =",">
+            (
+              #{model.day}, #{model.name},#{reddemCode.age}
+            )
+        </foreach >
+    </insert>
+</mapper>
