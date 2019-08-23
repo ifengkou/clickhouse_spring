@@ -1,7 +1,7 @@
 Spring Data 集成Clickhouse
-Mybatis 集成Clickhouse
-多数据源(mysql、clickhouse)集成
-注解方式、mybatis_mapper方式、jdbcTemplate方式
+Mybatis 集成 Clickhouse
+多数据源(mysql、clickhouse)集成(cn.ifengkou.db.timeseries.config包下面的MysqlDataSourceConfig和ClickhouseDataSourceConfig)
+注解方式、mybatis_mapper方式、jdbcTemplate方式(见EventService)
 
 ## 记录点
 

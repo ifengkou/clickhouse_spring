@@ -34,7 +34,7 @@ public class MysqlDataSourceConfig {
     @Primary
     @ConfigurationProperties(prefix = "spring.datasource")
     public DataSource dataSource() {
-        DataSource dataSource = DataSourceBuilder.create().driverClassName("com.mysql.jdbc.Driver").build();
+        DataSource dataSource = DataSourceBuilder.create().build();
         return dataSource;
     }
     @Bean(name = "sqlSessionFactory")
